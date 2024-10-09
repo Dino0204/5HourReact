@@ -1,3 +1,4 @@
+import CommonHeader from '@/components/common/header/CommonHeader';
 import styles from './styles/index.module.scss';
 
 
@@ -5,6 +6,7 @@ function Index() {
   return (
     <div className={styles.page}>
       {/* 공통헤더  */}
+      <CommonHeader/>
       {/* 공통네비 */}
       <div className={styles.page_contents}>
         <div className={styles.page_contents_introBox}>

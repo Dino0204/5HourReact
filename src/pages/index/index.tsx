@@ -1,4 +1,6 @@
 import CommonHeader from '@/components/common/header/CommonHeader';
+import CommonSearchBar from '@/components/common/searchBar/CommonSearchBar';
+import CommonNav from '@/components/common/navigation/CommonNav';
 import styles from './styles/index.module.scss';
 
 
@@ -8,6 +10,7 @@ function Index() {
       {/* 공통헤더  */}
       <CommonHeader/>
       {/* 공통네비 */}
+      <CommonNav/>
       <div className={styles.page_contents}>
         <div className={styles.page_contents_introBox}>
           <div className={styles.wrapper}>
@@ -18,6 +21,7 @@ function Index() {
               모든 크리에이터의 지원을 받습니다.
             </span>
             {/* 검색창  */}
+            <CommonSearchBar/>
           </div>
         </div>
         <div className={styles.page_contents_imageBox}></div>

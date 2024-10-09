@@ -9,3 +9,4 @@
 5. React Router 설치 : `npm install react-router-dom localforage match-sorter sort-by` <br/>
 6. TypeScript에서 Node.js Module 사용 위한 환경 구축 : `npm install @types/node` <br/>
 7. React Toast Popup Module 설치 : `npm install react-simple-toasts` <br/>
+8. - React Styled Components 설치 : `npm install styled-components@latest` <br/>

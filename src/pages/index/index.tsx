@@ -10,7 +10,11 @@ function Index() {
         <div className={styles.page_contents_introBox}>
           <div className={styles.wrapper}>
             <span className={styles.wrapper_title}>PhotoSplash</span>
-            <span className={styles.wrapper_desc}>시각 자료 출처</span>
+            <span className={styles.wrapper_desc}>
+              시각 자료 출처
+              <br/>
+              모든 크리에이터의 지원을 받습니다.
+            </span>
             {/* 검색창  */}
           </div>
         </div>

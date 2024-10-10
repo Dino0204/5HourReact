@@ -8,6 +8,7 @@ import CommonNav from '@/components/common/navigation/CommonNav';
 import CommonFooter from '@/components/common/footer/CommonFooter';
 import Card from './components/Card';
 import { CardDTO } from './types/card';
+import DetailDialog from '@/components/common/dialog/DetailDialog';
 
 import styles from './styles/index.module.scss';
 
@@ -15,10 +16,11 @@ import styles from './styles/index.module.scss';
 function Index() {
   const imgSelector = useRecoilValue(imageData)
   const [imgData,setImgData] = useState<CardDTO[]>([]);
+  const [open,setOpen] = useState<boolean>(false) // 이미지 상세 다이얼로그 (모달)
 
   const CARD_LIST = imgSelector.data.results.map((card:CardDTO)=>{
     return(
-      <Card data={card} key = {card.id}/>
+      <Card data={card} key = {card.id} handleDialog={setOpen}/>
     )
   })
 
@@ -47,6 +49,7 @@ function Index() {
       </div>    
       {/* 공통푸터 */}
       <CommonFooter/>
+      {open && <DetailDialog/>}
     </div>
   )
 }

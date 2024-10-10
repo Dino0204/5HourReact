@@ -15,12 +15,12 @@ import styles from './styles/index.module.scss';
 
 function Index() {
   const imgSelector = useRecoilValue(imageData)
-  const [imgData,setImgData] = useState<CardDTO[]>([]);
+  const [imgData,setImgData] = useState<CardDTO>();
   const [open,setOpen] = useState<boolean>(false) // 이미지 상세 다이얼로그 (모달)
 
   const CARD_LIST = imgSelector.data.results.map((card:CardDTO)=>{
     return(
-      <Card data={card} key = {card.id} handleDialog={setOpen}/>
+      <Card data={card} key = {card.id} handleDialog={setOpen} handleSetData={setImgData}/>
     )
   })
 
@@ -49,7 +49,7 @@ function Index() {
       </div>    
       {/* 공통푸터 */}
       <CommonFooter/>
-      {open && <DetailDialog/>}
+      {open && <DetailDialog data={imgData} handleDialog={setOpen}/>}
     </div>
   )
 }

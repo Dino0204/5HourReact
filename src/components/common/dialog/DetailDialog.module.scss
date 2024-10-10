@@ -125,6 +125,7 @@
         align-items: center;
         justify-content: flex-start;
 
+        width: 100%;
         gap:48px;
 
         &_item{
@@ -140,21 +141,6 @@
             font-weight: 600;
           }
 
-        }
-      }
-      .tagBox{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-
-        width: 100%;
-        gap: 8px;
-
-        &_tag{
-          padding: 4px 8px 6px 8px;
-          border-radius: 4px;
-          background-color: $color-gray-100;
-          color: $color-gray-500;
         }
       }
     }

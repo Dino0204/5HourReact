@@ -21,7 +21,7 @@ function Index() {
   // 반복적으로 사용되는 부분을 저장 (계산된 데이터로 저장) | 읽기쓰기 모두 가능한 훅
   const CARD_LIST = useMemo(() => {
     if(imgSelector.state === "hasValue"){
-      const result = imgSelector.contents.map((card:CardDTO)=>{
+      const result = imgSelector.contents.results.map((card:CardDTO)=>{
         return <Card data={card} key = {card.id} handleDialog={setOpen} handleSetData={setImgData}/>   
       })
       return result

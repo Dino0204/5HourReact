@@ -1,5 +1,9 @@
+import { useState } from 'react'
 import styles from './DetailDialog.module.scss'
 import { CardDTO, Tag } from '@/pages/index/types/card'
+import toast, {toastConfig} from 'react-simple-toasts'
+
+toastConfig({theme : 'dark'})
 
 interface Props {
   data: CardDTO
@@ -7,9 +11,30 @@ interface Props {
 }
 
 function DetailDialog({data,handleDialog}: Props) {
+  
+  const [bookmark,setBookmark] = useState(false)
+
   const closeDialog = () => {
     handleDialog(false)
   }
+
+  const addBookmark = (selected : CardDTO) =>{
+    setBookmark(true)
+
+    const getLocalStorage = JSON.parse(localStorage.getItem("bookmark"))
+
+    // 1. 로컬스토리지에 북마크 저장 데이터 없을 경우
+    if(!getLocalStorage || getLocalStorage === null){
+      localStorage.setItem("bookmark",JSON.stringify([selected]))
+      toast("해당 이미지를 북마크에 저장 하였습니다.")
+    }else{
+      // 2. 해당 이미지가 로컬스토리지에 저장되어 있을 경우
+
+
+    }
+
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.container_dialog}>
@@ -27,11 +52,17 @@ function DetailDialog({data,handleDialog}: Props) {
             </span>
           </div>
           <div className={styles.bookmark}>
-            <button className={styles.bookmark_button}>
+            <button className={styles.bookmark_button} onClick={() => addBookmark(data)}>
               {/*Google Icon*/}
-              <span className="material-symbols-outlined" style={{fontSize:16 + "px"}}>
-                favorite
-              </span>
+              {bookmark === false ? (
+                <span className="material-symbols-outlined" style={{fontSize:16 + "px"}}>
+                  favorite
+                </span>
+              ) : (
+                <span className="material-symbols-outlined" style={{fontSize:16 + "px", color: 'red'}}> ` `
+                  favorite
+                </span>
+              )}
               북마크
             </button>
             <button className={styles.bookmark_button}>다운로드</button>

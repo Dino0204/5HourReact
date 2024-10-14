@@ -11,6 +11,7 @@ import { CardDTO } from './types/card';
 import DetailDialog from '@/components/common/dialog/DetailDialog';
 
 import styles from './styles/index.module.scss';
+import Loading from './components/Loading';
 
 
 function Index() {
@@ -28,7 +29,7 @@ function Index() {
     }
     // imgSelector.state === "hasLoading"
     else{
-      return <div>Loading...</div>
+      return <Loading/>
     }
   },[imgSelector])
 

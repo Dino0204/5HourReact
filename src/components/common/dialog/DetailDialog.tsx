@@ -30,7 +30,6 @@ function DetailDialog({data,handleDialog}: Props) {
     }else{
       // 2. 해당 이미지가 로컬스토리지에 저장되어 있을 경우
 
-
     }
 
   }
